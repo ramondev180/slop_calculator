@@ -320,20 +320,20 @@
                                 <td>${z}</td>
                                 <td>${alpha}</td>
                                 <td>${cb2}</td>
-                                <td>${wedge}</td>
-                                <td>${wedge2}</td>
-                                <td>${wedge3}</td>
-                                <td>${col3}</td>
-                                <td>${w2}</td>
-                                <td>${sec}</td>
-                                <td>${f1value}</td>
-                                <td>${f2value}</td>
-                                <td>${f3value}</td>
-                                <td>${f4value}</td>
-                                <td>${plainF1}</td>
-                                <td>${plainF2}</td>
-                                <td>${plainF3}</td>
-                                <td>${plainF4}</td>
+                                <td>${wedge.toFixed(4)}</td>
+                                <td>${wedge2.toFixed(4)}</td>
+                                <td>${wedge3.toFixed(4)}</td>
+                                <td>${col3.toFixed(4)}</td>
+                                <td>${w2.toFixed(4)}</td>
+                                <td>${sec.toFixed(4)}</td>
+                                <td>${f1value.toFixed(4)}</td>
+                                <td>${f2value.toFixed(4)}</td>
+                                <td>${f3value.toFixed(4)}</td>
+                                <td>${f4value.toFixed(4)}</td>
+                                <td>${plainF1.toFixed(4)}</td>
+                                <td>${plainF2.toFixed(4)}</td>
+                                <td>${plainF3.toFixed(4)}</td>
+                                <td>${plainF4.toFixed(4)}</td>
                             </tr>
                     `);
                 }
@@ -347,33 +347,33 @@
                             <td></td>
                             <td></td>
                             <td></td>
-                            <th>${summationW2}</th>
+                            <th>${summationW2.toFixed(4)}</th>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
-                            <th>${summationF1}</th>
-                            <th>${summationF2}</th>
-                            <th>${summationF3}</th>
-                            <th>${summationF4}</th>
+                            <th>${summationF1.toFixed(4)}</th>
+                            <th>${summationF2.toFixed(4)}</th>
+                            <th>${summationF3.toFixed(4)}</th>
+                            <th>${summationF4.toFixed(4)}</th>
                         </tr>
                 `);
 
                 //Process Total
-                $(".sum_wsin").text(summationW2)
+                $(".sum_wsin").text(summationW2.toFixed(4))
 
-                $("#f1 #sum").text(summationF1)
-                $("#f1 #total").text((summationF1 / summationW2))
+                $("#f1 #sum").text(summationF1.toFixed(4))
+                $("#f1 #total").text((summationF1 / summationW2).toFixed(4))
 
-                $("#f2 #sum").text(summationF2)
-                $("#f2 #total").text((summationF2 / summationW2))
+                $("#f2 #sum").text(summationF2.toFixed(4))
+                $("#f2 #total").text((summationF2 / summationW2).toFixed(4))
 
-                $("#f3 #sum").text(summationF3)
-                $("#f3 #total").text((summationF3 / summationW2))
+                $("#f3 #sum").text(summationF3.toFixed(4))
+                $("#f3 #total").text((summationF3 / summationW2).toFixed(4))
 
-                $("#f4 #sum").text(summationF4)
-                $("#f4 #total").text((summationF4 / summationW2))
+                $("#f4 #sum").text(summationF4.toFixed(4))
+                $("#f4 #total").text((summationF4 / summationW2).toFixed(4))
 
             }
 
