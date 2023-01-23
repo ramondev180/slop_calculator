@@ -1,0 +1,395 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <title>Slope Document</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="row mt-3">
+            <div class="col-md-6 m-auto">
+                <div class="form-group mb-3">
+                    <label class="form-label">Slice Number</label>
+                    <input type="number" id="slice_number" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Enter Z <span class="text-danger">KINLDY USE COMMA(,) to seperate the
+                            value</span></label>
+                    <input type="text" id="z_numbers" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="form-label">Enter α <span class="text-danger">KINLDY USE COMMA(,) to seperate the
+                            value</span></label>
+                    <input type="text" id="alpha_numbers" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <form action="" id="slope_form" class="slope_form">
+                    <div class="row">
+                        <div class="col-md-6 m-auto">
+                            <h3 class="mb-2">Enter your value</h3>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter C</label>
+                                        <input class="form-control" type="number" id="c" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter B</label>
+                                        <input class="form-control" type="number" id="b" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter ∅</label>
+                                        <input class="form-control" type="number" id="fiaa" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter Ru</label>
+                                        <input class="form-control" type="number" id="ru" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter Unit weight</label>
+                                        <input class="form-control" type="number" id="unitweigth" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter F1</label>
+                                        <input class="form-control" type="number" id="f1" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter F2</label>
+                                        <input class="form-control" type="number" id="f2" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter F3</label>
+                                        <input class="form-control" type="number" id="f3" step="any" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-3">
+                                        <label class="form-label">Enter F4</label>
+                                        <input class="form-control" type="number" id="f4" step="any" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <dov class="row mt-3">
+                            <div class="col-md-6 m-auto">
+                                <button class="btn btn-success" type="submit">Calculate</button>
+                                <button class="btn btn-danger" type="reset">Clear</button>
+                            </div>
+                        </dov>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 mt-3 mb-4">
+                <div class="row">
+                    <div class="col-md-6 m-auto ">
+                        <h3>Calculate your Slope</h3>
+                        <button class="btn btn-danger" id="clear_all" onclick="clear_all()">Clear All</button>
+                    </div>
+                </div>
+                <div class="table-responsive mt-5">
+                    <table class=" py-3 table table-bordered table-sliped table-responsive" id="slope_table"
+                        style="display: none;">
+                        <thead>
+                            <tr>
+                                <th scope="col">SN</th>
+                                <th scope="col">Z(M)</th>
+                                <th scope="col">α</th>
+                                <th scope="col">Cb</th>
+                                <th scope="col">W=(γbz)</th>
+                                <th scope="col">W(1-ru)</th>
+                                <th scope="col">W(1-ru)tan0</th>
+                                <th scope="col">Column 3</th>
+                                <th scope="col">W sin(α)</th>
+                                <th scope="col">Sec(α)</th>
+                                <th scope="col">F1(0.5)</th>
+                                <th scope="col">F2(0.6)</th>
+                                <th scope="col">F3(0.8)</th>
+                                <th scope="col">F4(1.0)</th>
+                                <th scope="col">F1</th>
+                                <th scope="col">F2</th>
+                                <th scope="col">F3</th>
+                                <th scope="col">F4</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="slope_table_body">
+
+
+                        </tbody>
+                        <tfoot id="slope_table_footer">
+
+                        </tfoot>
+                    </table>
+                </div>
+                <div style="display: none;" id="slop_ans">
+                    <div class="mt-3 col-sm-6 m-auto" id="f1">
+                        <h3>ΣF1/ΣW sin(α)</h3>
+                        <h6><span id="sum"></span> / <span class="sum_wsin"></span><br>
+                            <span class="h5 text-danger"> <b>F1</b> = <span id="total"></span></span>
+                        </h6>
+                    </div>
+                    <div class="mt-3 col-sm-6 m-auto" id="f2">
+                        <h3>ΣF2/ΣW sin(α)</h3>
+                        <h6><span id="sum"></span> / <span class="sum_wsin"></span> <br>
+                            <span class="h5 text-danger"><b>F2</b> = <span id="total"></span></span>
+                        </h6>
+                    </div>
+                    <div class="mt-3 col-sm-6 m-auto" id="f3">
+                        <h3>ΣF3/ΣW sin(α)</h3>
+                        <h6><span id="sum"></span> / <span class="sum_wsin"></span> <br>
+                            <span class="h5 text-danger"><b>F3</b> = <span id="total"></span></span>
+                        </h6>
+                    </div>
+                    <div class="mt-3 col-sm-6 m-auto" id="f4">
+                        <h3>ΣF4/ΣW sin(α)</h3>
+                        <h6><span id="sum"></span> / <span class="sum_wsin"></span> <br>
+                            <span class="h5 text-danger"><b>F4</b> = <span id="total"></span></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+        let z_numbers = $("#z_numbers").val().split(",").filter((d) => d != "");
+        let alpha_numbers = $("#alpha_numbers").val().split(",").filter((d) => d != "");
+
+        function checkIfZIsValid() {
+            let slice_number = $("#slice_number").val();
+            if (z_numbers.length != slice_number) {
+                alert("Please make sure the number of Z inserted is comparable to the slice number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkIfAphlaIsValid() {
+            let slice_number = $("#slice_number").val();
+            if (alpha_numbers.length != slice_number) {
+                alert("Please make sure the number of alpha inserted is comparable to the slice number");
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        $("#z_numbers").blur(function () {
+            z_numbers = $(this).val().split(",").filter((d) => d != "");
+            checkIfZIsValid(z_numbers);
+        });
+
+        $("#alpha_numbers").blur(function () {
+            alpha_numbers = $(this).val().split(",").filter((d) => d != "");
+            checkIfAphlaIsValid(alpha_numbers);
+        });
+
+        $(document).on('submit', '.slope_form', function (e) {
+            e.preventDefault();
+
+            var z = ($('#z').val());
+
+            var c = ($('#c').val());
+            var b = ($('#b').val());
+            var ru = ($('#ru').val());
+            var f1 = ($('#f1').val());
+            var f2 = ($('#f2').val());
+            var f3 = ($('#f3').val());
+            var f4 = ($('#f4').val());
+            var unitweigth = ($('#unitweigth').val());
+            var fiaa = ($('#fiaa').val());
+
+
+            //FUNCTIONS
+            function getTanFromDegrees(degrees) {
+                return Math.tan(degrees * Math.PI / 180);
+            }
+            function getSinFromDegrees(degrees) {
+                return Math.sin(degrees * Math.PI / 180);
+            }
+
+            function getCosFromDegrees(degrees) {
+                return Math.cos(degrees * Math.PI / 180);
+            }
+
+            function cb(c, b) {
+                return (c * b);
+            }
+            function wedge1(unitweigth, b, z) {
+                return ((unitweigth * b * z))
+            }
+
+            function wedgeru(ru, wedge) {
+                return (wedge * (1 - ru));
+            }
+
+            function wedgetan(ru, fiaa, wedge) {
+                var t = getTanFromDegrees(fiaa);
+                return (wedge * (1 - ru) * t);
+            }
+
+
+            const requiredInput = Array.from($("input", this));
+            requiredInput.push($("#z_numbers"));
+            requiredInput.push($("#slice_number"));
+            requiredInput.push($("#alpha_numbers"));
+
+            let someFieldEmpty = requiredInput.some((input) => $(input).val() == "");
+
+            if (someFieldEmpty) {
+                alert("A required field is empty")
+            };
+            if (checkIfZIsValid() && !someFieldEmpty && checkIfAphlaIsValid()) {
+                $("#slope_table_body").html("")
+                $("#slope_table").show();
+                $("#slop_ans").show();
+
+                let summationF1 = 0;
+                let summationF2 = 0;
+                let summationF3 = 0;
+                let summationF4 = 0;
+                let summationW2 = 0;
+
+                for (let i = 0; i < $("#slice_number").val(); i++) {
+                    let z = z_numbers[i];
+                    let alpha = alpha_numbers[i];
+                    let cb2 = cb(c, b);
+                    let wedge = wedge1(unitweigth, b, z);
+                    let wedge2 = wedgeru(ru, wedge);
+                    let wedge3 = wedgetan(ru, fiaa, wedge);
+                    let col3 = cb2 + wedge3;
+                    let w2 = wedge * getSinFromDegrees(alpha);
+                    let sec = 1 / getCosFromDegrees(alpha);
+
+                    let f1value = sec / (1 + (getTanFromDegrees(alpha) * getTanFromDegrees(fiaa) / f1))
+                    let f2value = sec / (1 + (getTanFromDegrees(alpha) * getTanFromDegrees(fiaa) / f2))
+                    let f3value = sec / (1 + (getTanFromDegrees(alpha) * getTanFromDegrees(fiaa) / f3))
+                    let f4value = sec / (1 + (getTanFromDegrees(alpha) * getTanFromDegrees(fiaa) / f4))
+
+                    let plainF1 = f1value * col3;
+                    let plainF2 = f2value * col3;
+                    let plainF3 = f3value * col3;
+                    let plainF4 = f4value * col3;
+
+                    summationF1 += plainF1;
+                    summationF2 += plainF2;
+                    summationF3 += plainF3;
+                    summationF4 += plainF4;
+                    summationW2 += w2;
+
+                    $("#slope_table_body").append(`
+                    <tr>
+                                <th scope="row">${i + 1}</th>
+                                <td>${z}</td>
+                                <td>${alpha}</td>
+                                <td>${cb2}</td>
+                                <td>${wedge}</td>
+                                <td>${wedge2}</td>
+                                <td>${wedge3}</td>
+                                <td>${col3}</td>
+                                <td>${w2}</td>
+                                <td>${sec}</td>
+                                <td>${f1value}</td>
+                                <td>${f2value}</td>
+                                <td>${f3value}</td>
+                                <td>${f4value}</td>
+                                <td>${plainF1}</td>
+                                <td>${plainF2}</td>
+                                <td>${plainF3}</td>
+                                <td>${plainF4}</td>
+                            </tr>
+                    `);
+                }
+                $("#slope_table_footer").html(`
+                 <tr>
+                            <th scope="row">Summation</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>${summationW2}</th>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <th>${summationF1}</th>
+                            <th>${summationF2}</th>
+                            <th>${summationF3}</th>
+                            <th>${summationF4}</th>
+                        </tr>
+                `);
+
+                //Process Total
+                $(".sum_wsin").text(summationW2)
+
+                $("#f1 #sum").text(summationF1)
+                $("#f1 #total").text((summationF1 / summationW2))
+
+                $("#f2 #sum").text(summationF2)
+                $("#f2 #total").text((summationF2 / summationW2))
+
+                $("#f3 #sum").text(summationF3)
+                $("#f3 #total").text((summationF3 / summationW2))
+
+                $("#f4 #sum").text(summationF4)
+                $("#f4 #total").text((summationF4 / summationW2))
+
+            }
+
+            window.scrollTo(0, document.body.scrollHeight);
+        });
+
+
+        function clear_all() {
+            $("input").each(function () {
+                $(this).val('');
+            })
+            $("#slope_table_body").html("")
+            $("#slope_table").hide();
+            $("#slop_ans").hide();
+        }
+    </script>
+</body>
+
+</html>
